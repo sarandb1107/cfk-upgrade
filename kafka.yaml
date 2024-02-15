@@ -1,0 +1,22 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: Kafka
+metadata:
+  name: kafka
+  namespace: upgrade
+spec:
+  replicas: 3
+  image:
+    application: confluentinc/cp-server:7.5.0
+    init: confluentinc/confluent-init-container:2.8.0
+  dataVolumeCapacity: 10Gi
+  configOverrides:
+    server:
+      - inter.broker.protocol.version=3.5
+      - log.message.format.version=3.5
+  metricReporter:
+    enabled: true
+  dependencies:
+    zookeeper:
+      endpoint: zookeeper.upgrade.svc.cluster.local:2181
+---

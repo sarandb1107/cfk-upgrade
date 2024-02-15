@@ -1,0 +1,71 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: confluent
+spec:
+  shortDescription: Interact with Confluent Platform
+  description: |
+    The official kubectl plugin for Confluent Platform
+  version: v0.581.16
+  homepage: https://github.com/confluentinc/kubectl-plugin/
+  platforms:
+    - uri: https://github.com/confluentinc/releases/download/kubectl-confluent-darwin-amd64.tar.gz
+      sha256: 67ae405bcebd0099c743a7a6f4f9677f368ae293fa7c173645db70b0d122405f
+      files:
+        - from: "*"
+          to: "."
+      bin: "./kubectl-confluent"
+      selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+    - uri: https://github.com/confluentinc/releases/download/kubectl-confluent-linux-amd64.tar.gz
+      sha256: 8a47fdc7d4ea09c3e60910af54c01deffcb663e749fd9741663e59f3867c1905
+      files:
+        - from: "*"
+          to: "."
+      bin: "./kubectl-confluent"
+      selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+    - uri: https://github.com/confluentinc/releases/download/kubectl-confluent-windows-amd64.tar.gz
+      sha256: c2dfb6c424a799ca4df7587ebf054c697ec34463e0847446e8db921dc9d99df0
+      files:
+        - from: "*"
+          to: "."
+      bin: "./kubectl-confluent.exe"
+      selector:
+        matchLabels:
+          os: windows
+          arch: amd64
+    - uri: https://github.com/confluentinc/releases/download/kubectl-confluent-darwin-arm64.tar.gz
+      sha256: 5dbd863c153a9446e3eadfa84e241c8ae2eac6fac21fe719aae67b6cfc7adfe3
+      files:
+        - from: "*"
+          to: "."
+      bin: "./kubectl-confluent"
+      selector:
+        matchLabels:
+          os: darwin
+          arch: arm64
+    - uri: https://github.com/confluentinc/releases/download/kubectl-confluent-linux-arm64.tar.gz
+      sha256: 341fe465bda44c18f92cb8b14e903ee7931de25bf33a6e7c75baf5bb64cc7cc7
+      files:
+        - from: "*"
+          to: "."
+      bin: "./kubectl-confluent"
+      selector:
+        matchLabels:
+          os: linux
+          arch: arm64
+    - uri: https://github.com/confluentinc/releases/download/kubectl-confluent-windows-arm64.tar.gz
+      sha256: 5c0b2fa5a7bccdb5c2caaea045c5c852c9c03d284b1a2efb181e5a51c5a589fc
+      files:
+        - from: "*"
+          to: "."
+      bin: "./kubectl-confluent.exe"
+      selector:
+        matchLabels:
+          os: windows
+          arch: arm64
